@@ -5,7 +5,7 @@ function Header(){
 
   return(
     <div>
-      <img src={ Logo} alt="logo-header"/>
+      <img src={ Logo } alt="logo-header"/>
     </div>
   )
 }

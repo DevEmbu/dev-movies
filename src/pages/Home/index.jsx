@@ -1,6 +1,6 @@
 import Button from '../../components/Button'
 import api from '../services/Api' // importando a API 
-import { Background, Container, Info, Poster } from './styles'
+import { Background, Container, ContainerButtons, Info, Poster } from './styles'
 import { useState, useEffect } from 'react'
 
 function Home(){
@@ -13,7 +13,7 @@ function Home(){
     const { data: {results}
           } = await api.get('/movie/popular')
 
-   setMovie(results[13])
+   setMovie(results[14])
    //console.log(results)
   }
    getMovies()
@@ -26,15 +26,17 @@ function Home(){
         {movie && (
         <Background fundo={ `https://image.tmdb.org/t/p/original${movie.poster_path}` }>
          <Container>
+
           <Info> 
+
             <h1>{movie.title}</h1>
             <p>{movie.overview}</p>
-            <p>Modulo II React: Estilizando o Poster </p>
-          <div>
-            <Button></Button>
-            <Button></Button>
-            
-          </div>
+            <p>Modulo II React: criando os botões </p>
+                    
+                <ContainerButtons>
+                  <Button red>Assista Agora</Button>
+                  <Button >Assista o Trailer</Button>                    
+                </ContainerButtons>
           
           </Info>
           <Poster>

@@ -1,15 +1,4 @@
-// // import styled from 'styled-components'
 
-// // export const Background = styled.div` 
-// //       background-image: url(${(props) => props.fundo});
-// //       height: 100vh;
-// //       background-position: center;
-// //       background-size: cover;
-// //       display: flex;
-// //       align-items: center;
-// //       justify-content: center;
-
-// `
 
 import styled from 'styled-components'
      
@@ -74,4 +63,9 @@ export const Poster = styled.div`
         border-radius: 30px;
 
     }
+`
+export const ContainerButtons = styled.div` 
+      display: flex;
+      gap: 30px;
+      margin-top: 30px;
 `

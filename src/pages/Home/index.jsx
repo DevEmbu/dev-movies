@@ -31,7 +31,7 @@ function Home(){
 
             <h1>{movie.title}</h1>
             <p>{movie.overview}</p>
-            <p>Modulo II React: criando os botões </p>
+            <p>Modulo III React: Buscando Filmes na API </p>
                     
                 <ContainerButtons>
                   <Button red>Assista Agora</Button>

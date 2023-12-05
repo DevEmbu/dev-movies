@@ -1,22 +1,37 @@
 import Button from '../../components/Button'
+import Slider from '../../components/Sliders'
 import api from '../services/Api' // importando a API 
 import { Background, Container, ContainerButtons, Info, Poster } from './styles'
 import { useState, useEffect } from 'react'
 
 function Home(){
     const [movie, setMovie] = useState()
+    const [topMovies, setTopMovies] = useState()
 
 
  useEffect( () => { 
     //Aqui vou chamar a API la na pasta service, onde montei a base do servidor.
- async function getMovies(){
+    //ESSA FUNÇÃO CHAMA O BCKGROUND DO SITE
+    async function getMovies(){
     const { data: {results}
           } = await api.get('/movie/popular')
 
    setMovie(results[14])
    //console.log(results)
   }
+
+  //FUNÇÃO QUE VAI CHAMAR OS FILMES TOPS
+  async function getTopMovies(){
+       const {data: {results}
+             } = await api.get('/movie/top_rated')
+       setTopMovies(results)
+    // console.log(results)
+  }
+
+
+  
    getMovies()
+   getTopMovies()
 
    }, [])  
 
@@ -31,7 +46,7 @@ function Home(){
 
             <h1>{movie.title}</h1>
             <p>{movie.overview}</p>
-            <p>Modulo III React: Buscando Filmes na API </p>
+            <p>Modulo III React: CARROSSEL SWIPER </p>
                     
                 <ContainerButtons>
                   <Button red>Assista Agora</Button>
@@ -45,6 +60,7 @@ function Home(){
          </Container>
         </Background>
         )}
+         {topMovies && <Slider info={topMovies} title={'Top Filmes'} />}
         </>
     )
 }

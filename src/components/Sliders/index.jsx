@@ -1,6 +1,7 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { ContainerSlide } from './styles'
+import PostsCards from '../Cards'
 
 //FUNÇÃO  que vai receber o CARROSSEL DE FILMES TOPS
 function Slider({ info, title }){
@@ -17,7 +18,7 @@ function Slider({ info, title }){
              >
                 {info.map((item, index) => (
                     <SwiperSlide key={index}>
-                        <div className='cor-title'> {item.original_title} </div>
+                        <PostsCards item={item} />
                     </SwiperSlide>
 
                 ))}

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 
 export const ContainerHeader = styled.div` 
+      min-height: 100px;
       z-index: 99;
       position: fixed;
       top: 0;
@@ -10,8 +11,12 @@ export const ContainerHeader = styled.div`
       justify-content: space-between;
       align-items: center;
       padding: 5px 20px;
-      width: 90%;
+      width: 100%;
+      background-color: ${ (props) => props.changeBackground ? '#000' 
+                          : 'transparent'};
+      transition: background-color 1.5s ease-in-out;
       //background:#dd5200;
+
      
 
       img{
@@ -22,7 +27,7 @@ export const ContainerHeader = styled.div`
 `
 export const Menu = styled.ul`
     display: flex; 
-    list-style: none;
+    list-style: none; 
     gap: 30px;
     
     

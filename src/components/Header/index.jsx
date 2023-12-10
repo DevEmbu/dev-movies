@@ -3,13 +3,25 @@
 import { Link, useLocation } from 'react-router-dom'
 import Logo from '../../assets/DEVEMBU.png'
 import { ContainerHeader, Menu, Li } from './styles'
+import { useState } from 'react'
 
 function Header(){
-   const { pathname } = useLocation()
-   console.log(pathname)
-  return(
-    <ContainerHeader>
+    const [changeBackground, setChangeBackground] = useState(false)
+    const { pathname } = useLocation()
+//função que vai fazer a transição da cor do fundo do Header, 
+//quando for usado o mouse(descendo ou subindo)
 
+        window.onscroll = () => {
+         if(!changeBackground && pageYOffset > 300){
+           setChangeBackground(true)
+         }
+         if(changeBackground && window.pageYOffset <= 300){
+           setChangeBackground(false)
+         }
+      }
+     
+  return(
+    <ContainerHeader changeBackground={changeBackground}>
       <img src={ Logo } alt="logo-header"/>
       
       <Menu>

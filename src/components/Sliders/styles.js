@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerSlide = styled.div`
-   background: #ff0000;
+   background: #000000;
    padding: 0 30px;
    
   

@@ -10,7 +10,7 @@ export const ContainerCards = styled.div`
 
    img{
     border-radius: 25px;
-    width: 300px; 
+    width: 200px; 
     height: 100%;    
 
    }

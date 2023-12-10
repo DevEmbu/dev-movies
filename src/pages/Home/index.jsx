@@ -20,7 +20,7 @@ function Home(){
     const { data: {results}
           } = await api.get('/movie/popular')
 
-   setMovie(results[14])
+   setMovie(results[2])
    //console.log(results)
   }
 
@@ -77,7 +77,7 @@ function Home(){
 
             <h1>{movie.title}</h1>
             <p>{movie.overview}</p>
-            <p>Modulo III React: Estilizando o carrossel de Series </p>
+            <p>Modulo III React: Criando efeito no Header pt.2 </p>
                     
                 <ContainerButtons>
                   <Button red>Assista Agora</Button>

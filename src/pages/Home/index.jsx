@@ -1,16 +1,17 @@
 import Button from '../../components/Button'
-import Slider from '../../components/Sliders'
+import Modal from '../../components/Modal'
 import api from '../services/Api' // importando a API 
 import { getImagesCardsTopFilmes } from '../utils/getImages'
 import { Background, Container, ContainerButtons, Info, Poster } from './styles'
 import { useState, useEffect } from 'react'
+//import {getMovies, getTopMovies, getTopSeries, getSeriesPopular, getPersonPopular} from '../services/Api'
 
 function Home(){
     const [movie, setMovie] = useState()
     const [topMovies, setTopMovies] = useState()
     const [topSeries, setTopSeries] = useState()
     const [seriesPopular, setSeriesPopular] = useState()
-    const [pesrsonPopular, setPersonPopular] = useState()
+    const [personPopular, setPersonPopular] = useState()
 
 
  useEffect( () => { 
@@ -20,7 +21,8 @@ function Home(){
     const { data: {results}
           } = await api.get('/movie/popular')
 
-   setMovie(results[0])
+          
+   setMovie(results[5])
    //console.log(results)
   }
 
@@ -53,7 +55,7 @@ function Home(){
             } = await api.get('/person/popular')
             
             setPersonPopular(results)
-            console.log(results)
+           // console.log(results)
   }
    
 
@@ -71,13 +73,14 @@ function Home(){
         <>
         {movie && (
         <Background fundo={getImagesCardsTopFilmes(movie.backdrop_path) }>
+         <Modal movieId={movie.id}/>
          <Container>
 
           <Info> 
 
             <h1>{movie.title}</h1>
             <p>{movie.overview}</p>
-            <p>Modulo III React: Criando efeito no Header pt.2 </p>
+            <p>Modulo III React: Criando o Modal de Filmes </p>
                     
                 <ContainerButtons>
                   <Button red>Assista Agora</Button>
@@ -91,11 +94,8 @@ function Home(){
          </Container>
         </Background>
         )}
-         {topMovies && <Slider info={topMovies} title={'Top Filmes'} />}
-         {topSeries && <Slider info={topSeries} title={'Top Series'} />}
-         {seriesPopular && <Slider info={seriesPopular} title={'Series Populares'} />}
-         {pesrsonPopular && <Slider info={pesrsonPopular} title={'Artistas Populares'} /> }
+         
         </>
     )
-}
-export default Home 
+        }
+export default Home

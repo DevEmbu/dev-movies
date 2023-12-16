@@ -25,9 +25,9 @@ function Header(){
       <img src={ Logo } alt="logo-header"/>
       
       <Menu>
-        <Li isActive={ pathname === '/' }> <Link to='/'>Home</Link> </Li>
-        <Li isActive={ pathname.includes('filmes') }> <Link to='/filmes'>Filmes</Link> </Li>
-        <Li isActive={ pathname.includes('series') }> <Link to='/series'>Series</Link> </Li>       
+        <Li isactive={ pathname === '/' }> <Link to='/'>Home</Link> </Li>
+        <Li isactive={ pathname.includes('filmes') }> <Link to='/filmes'>Filmes</Link> </Li>
+        <Li isactive={ pathname.includes('series') }> <Link to='/series'>Series</Link> </Li>       
                
       </Menu>
 

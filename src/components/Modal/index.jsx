@@ -1,7 +1,8 @@
 
 import { useEffect, useState } from 'react'
-import { Background, Container } from './styles'
+import { BackgroundModal, ContainerModal } from './styles'
 import api from '../../pages/services/Api'
+
 
 //FUNÇÃO QUE CRIA O MODAL D FILME
 function Modal({movieId}){
@@ -12,27 +13,29 @@ function Modal({movieId}){
     async function getTopMovies(){
       const {data: {results}
             } = await api.get(`/movie/${movieId}/videos`)
-      setMovies(results[0])
-    console.log(results[0])
+      
+          //console.log(results[0])
+            setMovies(results[0])
+    
  }
    getTopMovies()
   }, [])
 
-//AQUI VAI RETORNAR  O FUNDO E O FILME
+//AQUI VAI RETORNAR   O VIDEO
     return(
-      <Background>
+      <BackgroundModal>
         {movies && (
-          <Container> 
+          <ContainerModal> 
         <iframe 
               src={`https://www.youtube.com/embed/${movies.key}`}
               width="100%"
-              height="500px"
+              height="400px"
               title="Youtube Video Player"     
         > </iframe>
                    
-      </Container>
+      </ContainerModal>
       )}
-      </Background>
+      </BackgroundModal>
     )
 }
 export default Modal

@@ -1,5 +1,6 @@
 import Button from '../../components/Button'
 import Modal from '../../components/Modal'
+import Slider from '../../components/Sliders'
 import api from '../services/Api' // importando a API 
 import { getImagesCardsTopFilmes } from '../utils/getImages'
 import { Background, Container, ContainerButtons, Info, Poster } from './styles'
@@ -22,7 +23,7 @@ function Home(){
           } = await api.get('/movie/popular')
 
           
-   setMovie(results[5])
+   setMovie(results[3])
    //console.log(results)
   }
 
@@ -72,7 +73,7 @@ function Home(){
     return (
         <>
         {movie && (
-        <Background fundo={getImagesCardsTopFilmes(movie.backdrop_path) }>
+        <Background fundo={getImagesCardsTopFilmes(movie.backdrop_path)}>
          <Modal movieId={movie.id}/>
          <Container>
 
@@ -89,12 +90,15 @@ function Home(){
           
           </Info>
           <Poster>
-            <img src={getImagesCardsTopFilmes(movie.poster_path) } alt='capa-do-filme' />
+            <img src={getImagesCardsTopFilmes(movie.poster_path)} alt='capa-do-filme' />
           </Poster>
          </Container>
         </Background>
         )}
-         
+         {topMovies && <Slider info={topMovies} title={'Top Filmes'}/>}
+         {topSeries && <Slider info={topSeries} title={'Series Top'} />}
+         {seriesPopular && <Slider info={seriesPopular} title={'Filmes Populares'} />}
+         {personPopular && <Slider info={personPopular} title={'Pessoas Populares'} />}
         </>
     )
         }

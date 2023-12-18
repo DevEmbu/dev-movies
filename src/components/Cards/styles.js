@@ -6,20 +6,27 @@ export const ContainerCards = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 5px;
 
 
    img{
-    border-radius: 25px;
-    width: 200px; 
-    height: 100%;    
+    border-radius: 20px;
+    width: 150px; 
+    height: 100%;
+    
+    &:hover{
+      box-shadow: 0px 0px 10px 5px rgba(184,180,184,1);
+    }
 
    }
 
    h3{
      color: #ffffff;
-     font-size: 22px;
+     font-size: 15px;
      font-weight: 500;
-     padding: 15px;
+     padding: 5px;
+     margin-top: 10px;
+     text-align: center;
    }
 
 `

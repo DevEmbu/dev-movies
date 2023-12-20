@@ -5,7 +5,7 @@ import api from '../../pages/services/Api'
 
 
 //FUNÇÃO QUE CRIA O MODAL D FILME
-function Modal({movieId}){
+function Modal({ movieId, setShowModal }){
   const [movies, setMovies] = useState()
 
   //ESSA FUNÇÃO VAI NA API E BUSCA O FILME
@@ -23,9 +23,15 @@ function Modal({movieId}){
 
 //AQUI VAI RETORNAR   O VIDEO
     return(
-      <BackgroundModal>
+      <BackgroundModal >
+               
+        
         {movies && (
-          <ContainerModal> 
+          <ContainerModal onClick={() => setShowModal(flase)}>
+
+            {/* Quando clicar nesse botão(X) vai fechar o video*/}
+          <div className='fechar' onClick={() => setShowModal()}>X</div>
+                         
         <iframe 
               src={`https://www.youtube.com/embed/${movies.key}`}
               width="100%"

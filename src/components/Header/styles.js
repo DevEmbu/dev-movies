@@ -3,10 +3,11 @@ import styled from 'styled-components'
 
 
 export const ContainerHeader = styled.div` 
-      min-height: 100px;
-      z-index: 99;
+      z-index: 999;
       position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -41,6 +42,7 @@ export const Li = styled.li`
    a{
     text-decoration: none;
     color: #ffffff;
+    margin-right: 30px;
    }
 
    &::after{

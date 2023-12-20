@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react'
 //import {getMovies, getTopMovies, getTopSeries, getSeriesPopular, getPersonPopular} from '../services/Api'
 
 function Home(){
+    const [showModal, setShowModal] = useState(false)
     const [movie, setMovie] = useState()
     const [topMovies, setTopMovies] = useState()
     const [topSeries, setTopSeries] = useState()
@@ -23,7 +24,7 @@ function Home(){
           } = await api.get('/movie/popular')
 
           
-   setMovie(results[3])
+   setMovie(results[4])
    //console.log(results)
   }
 
@@ -74,18 +75,18 @@ function Home(){
         <>
         {movie && (
         <Background fundo={getImagesCardsTopFilmes(movie.backdrop_path)}>
-         <Modal movieId={movie.id}/>
+         {showModal && (<Modal movieId={movie.id} setShowModal={setShowModal} /> )}
          <Container>
 
           <Info> 
 
             <h1>{movie.title}</h1>
             <p>{movie.overview}</p>
-            <p>Modulo III React: Criando o Modal de Filmes </p>
+            <p>Modulo III React: Controlando visibilidade do Modal </p>
                     
                 <ContainerButtons>
                   <Button red>Assista Agora</Button>
-                  <Button >Assista o Trailer</Button>                    
+                  <Button onClick={() => setShowModal(true)} >Assista o Trailer</Button>                    
                 </ContainerButtons>
           
           </Info>

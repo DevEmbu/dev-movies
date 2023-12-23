@@ -5,6 +5,7 @@ import api from '../services/Api' // importando a API
 import { getImagesCardsTopFilmes } from '../utils/getImages'
 import { Background, Container, ContainerButtons, Info, Poster } from './styles'
 import { useState, useEffect } from 'react'
+
 //import {getMovies, getTopMovies, getTopSeries, getSeriesPopular, getPersonPopular} from '../services/Api'
 
 function Home(){
@@ -24,7 +25,7 @@ function Home(){
           } = await api.get('/movie/popular')
 
           
-   setMovie(results[4])
+   setMovie(results[1])
    //console.log(results)
   }
 
@@ -77,7 +78,7 @@ function Home(){
         <Background fundo={getImagesCardsTopFilmes(movie.backdrop_path)}>
          {showModal && (<Modal movieId={movie.id} setShowModal={setShowModal} /> )}
          <Container>
-
+           
           <Info> 
 
             <h1>{movie.title}</h1>

@@ -29,7 +29,7 @@ export const ContainerHeader = styled.div`
 export const Menu = styled.ul`
     display: flex; 
     list-style: none; 
-    gap: 30px;
+    gap: 50px;
     
     
 `
@@ -41,15 +41,15 @@ export const Li = styled.li`
 
    a{
     text-decoration: none;
-    color: #ffffff;
-    margin-right: 30px;
+    color: #E6B54B;
+    
    }
 
    &::after{
     content: '';
     height: 3px; 
     width: ${props => (props.isActive ? '100%' : 0)};
-    background-color: #189b20;
+    background-color: #F8F1E1;
     position: absolute;
     bottom: -7px; 
     left: 0;

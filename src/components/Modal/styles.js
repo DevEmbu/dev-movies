@@ -17,14 +17,14 @@ export const BackgroundModal = styled.div`
  `
 
 export const ContainerModal = styled.div`
-     background: linear-gradient(45deg, rgba(11,11,219,1) 3%, rgba(109,193,233,1) 27%, rgba(30,152,237,1) 49%, rgba(109,193,233,1) 71%, rgba(11,11,219,1) 97%);  
+     background: #000;  
      width: 50%; 
      //z-index: 999;
      display: flex;
      justify-content: center; 
      align-items: center; 
      position: fixed;  
-     padding: 15px; 
+     padding: 20px; 
      max-width: 1200px; 
 
      iframe{
@@ -38,7 +38,7 @@ export const ContainerModal = styled.div`
           top: 0;
           right: 0;
           cursor: pointer;
-         
+
           }
     
 

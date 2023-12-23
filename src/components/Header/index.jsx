@@ -4,6 +4,11 @@ import { Link, useLocation } from 'react-router-dom'
 import Logo from '../../assets/DEVEMBU.png'
 import { ContainerHeader, Menu, Li } from './styles'
 import { useState } from 'react'
+import { MdOutlineLocalMovies } from "react-icons/md"
+import { BiCameraMovie } from "react-icons/bi"
+import { MdOutlineHome } from "react-icons/md"
+
+
 
 function Header(){
     const [changeBackground, setChangeBackground] = useState(false)
@@ -25,9 +30,9 @@ function Header(){
       <img src={ Logo } alt="logo-header"/>
       
       <Menu>
-        <Li isactive={ pathname === '/' }> <Link to='/'>Home</Link> </Li>
-        <Li isactive={ pathname.includes('filmes') }> <Link to='/filmes'>Filmes</Link> </Li>
-        <Li isactive={ pathname.includes('series') }> <Link to='/series'>Series</Link> </Li>       
+        <Li isactive={ pathname === '/' }> <Link to='/'><MdOutlineHome /> </Link> </Li>
+        <Li isactive={ pathname.includes('filmes') }> <Link to='/filmes'><BiCameraMovie /> </Link> </Li>
+        <Li isactive={ pathname.includes('series') }> <Link to='/series'><MdOutlineLocalMovies /> </Link> </Li>       
                
       </Menu>
 

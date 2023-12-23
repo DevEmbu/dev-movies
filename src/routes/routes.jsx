@@ -5,6 +5,8 @@ import Home from '../pages/Home'
 import Movies from '../pages/Movies'
 import Series from '../pages/Series'
 import DefaultLayout from '../pages/layout/DefaultLayout'
+import Detalhes from '../pages/Detalhes'
+
 
 function Router(){
 
@@ -14,6 +16,7 @@ function Router(){
             <Route path='/' element={<Home />} />
             <Route path='/filmes' element={<Movies />} />
             <Route path='/series' element={<Series />} />
+            <Route path='/detalhe/:id' element={<Detalhes />} />
           </Route>
           
         </Routes>

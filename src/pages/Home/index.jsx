@@ -5,6 +5,8 @@ import api from '../services/Api' // importando a API
 import { getImagesCardsTopFilmes } from '../utils/getImages'
 import { Background, Container, ContainerButtons, Info, Poster } from './styles'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 
 //import {getMovies, getTopMovies, getTopSeries, getSeriesPopular, getPersonPopular} from '../services/Api'
 
@@ -15,6 +17,7 @@ function Home(){
     const [topSeries, setTopSeries] = useState()
     const [seriesPopular, setSeriesPopular] = useState()
     const [personPopular, setPersonPopular] = useState()
+    const navegacao = useNavigate()
 
 
  useEffect( () => { 
@@ -83,10 +86,10 @@ function Home(){
 
             <h1>{movie.title}</h1>
             <p>{movie.overview}</p>
-            <p>Modulo III React: Controlando visibilidade do Modal </p>
+            <p>Modulo III React: Iniciando tela de Detalhes </p>
                     
                 <ContainerButtons>
-                  <Button red>Assista Agora</Button>
+                  <Button red onClick={() => navegacao(`/detalhe/${movie.id}`) }>Assista Agora</Button>
                   <Button onClick={() => setShowModal(true)} >Assista o Trailer</Button>                    
                 </ContainerButtons>
           

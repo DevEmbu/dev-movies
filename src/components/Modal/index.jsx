@@ -1,33 +1,31 @@
 
+import { getMovie } from '../../pages/services/getData'
 import { useEffect, useState } from 'react'
 import { BackgroundModal, ContainerModal } from './styles'
-import api from '../../pages/services/Api'
+
 import { IoMdCloseCircleOutline } from "react-icons/io"
 
 
 //FUNÇÃO QUE CRIA O MODAL D FILME
 function Modal({ movieId, setShowModal }){
-  const [movies, setMovies] = useState()
-
+  const [movie, setMovie] = useState()
+  
   //ESSA FUNÇÃO VAI NA API E BUSCA O FILME
   useEffect(() => { 
-    async function getTopMovies(){
-      const {data: {results}
-            } = await api.get(`/movie/${movieId}/videos`)
-      
-          //console.log(results[0])
-            setMovies(results[0])
+    async function getMovies(){
+     
+      console.log(setMovie(await getMovie(movieId)))
+          
+    }
     
- }
-   getTopMovies()
+      getMovies()
   }, [])
 
 //AQUI VAI RETORNAR   O VIDEO
     return(
-      <BackgroundModal >
-               
+      <BackgroundModal >               
         
-        {movies && (
+        {movie && (
           <ContainerModal onClick={() => setShowModal(flase)}>
             
             {/* Quando clicar nesse icone(X) vai fechar o video*/}
@@ -36,7 +34,7 @@ function Modal({ movieId, setShowModal }){
           </div>
             
         <iframe 
-              src={`https://www.youtube.com/embed/${movies.key}`}
+              src={`https://www.youtube.com/embed/${movie.key}`}
               width="100%"
               height="400px"
               title="Youtube Video Player"     

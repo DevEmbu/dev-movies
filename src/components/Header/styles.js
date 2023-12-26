@@ -21,7 +21,7 @@ export const ContainerHeader = styled.div`
      
 
       img{
-        width: 8%;
+        width: 4%;
              
       }
       

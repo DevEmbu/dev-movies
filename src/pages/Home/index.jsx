@@ -1,7 +1,8 @@
 import Button from '../../components/Button'
 import Modal from '../../components/Modal'
 import Slider from '../../components/Sliders'
-import api from '../services/Api' // importando a API 
+import { getMovies, getPersonPopular, getSeriesPopular, getTopMovies, getTopSeries } from '../services/getData'
+//import api from '../services/Api' // importando a API 
 import { getImagesCardsTopFilmes } from '../utils/getImages'
 import { Background, Container, ContainerButtons, Info, Poster } from './styles'
 import { useState, useEffect } from 'react'
@@ -23,56 +24,59 @@ function Home(){
  useEffect( () => { 
     //Aqui vou chamar a API la na pasta service, onde montei a base do servidor.
     //ESSA FUNÇÃO CHAMA O BCKGROUND DO SITE
-    async function getMovies(){
-    const { data: {results}
-          } = await api.get('/movie/popular')
-
-          
-   setMovie(results[1])
-   //console.log(results)
+    async function getAllData(){
+              
+   setMovie(await getMovies())
+   setTopMovies(await getTopMovies())
+   setTopSeries(await getTopSeries())
+   setSeriesPopular(await getSeriesPopular())
+   setPersonPopular(await getPersonPopular())
   }
+    getAllData()
+  }, [])
 
-  //FUNÇÃO QUE VAI CHAMAR OS FILMES TOPS
-  async function getTopMovies(){
-       const {data: {results}
-             } = await api.get('/movie/top_rated')
-       setTopMovies(results)
-     //console.log(results)
-  }
 
-  //FUNÇÃO QUE VAI CHAMAR AS LISTAS DE SERIS MAIS POPULARES
-    async function getTopSeries(){
-       const {data: {results}
-             } = await api.get('/tv/top_rated')
-          //console.log(results)
-         setTopSeries(results)      
-    }
+  // //FUNÇÃO QUE VAI CHAMAR OS FILMES TOPS
+  // async function getTopMovies(){
+  //      const {data: {results}
+  //            } = await api.get('/movie/top_rated')
+  //      setTopMovies(results)
+  //    //console.log(results)
+  // }
 
-  //FUNÇÃO QUE IRÁ CHAMAR AS SERIES POPULARES DO FILME
-    async function getSeriesPopular(){
-      const {data: {results}
-            } = await api.get('/tv/popular')
-      // console.log(results)
-        setSeriesPopular(results)
-    }
-  //FUNÇÃO QUE VAI MOSTRAR OS ARTISTAS POPULARES DO FILME
-  async function getPersonPopular(){
-      const {data: {results}
-            } = await api.get('/person/popular')
+  // //FUNÇÃO QUE VAI CHAMAR AS LISTAS DE SERIS MAIS POPULARES
+  //   async function getTopSeries(){
+  //      const {data: {results}
+  //            } = await api.get('/tv/top_rated')
+  //         //console.log(results)
+  //        setTopSeries(results)      
+  //   }
+
+  // //FUNÇÃO QUE IRÁ CHAMAR AS SERIES POPULARES DO FILME
+  //   async function getSeriesPopular(){
+  //     const {data: {results}
+  //           } = await api.get('/tv/popular')
+  //     // console.log(results)
+  //       setSeriesPopular(results)
+  //   }
+  // //FUNÇÃO QUE VAI MOSTRAR OS ARTISTAS POPULARES DO FILME
+  // async function getPersonPopular(){
+  //     const {data: {results}
+  //           } = await api.get('/person/popular')
             
-            setPersonPopular(results)
-           // console.log(results)
-  }
+  //           setPersonPopular(results)
+  //          // console.log(results)
+  // }
    
 
   
-   getMovies()
-   getTopMovies()
-   getTopSeries()
-   getSeriesPopular()
-   getPersonPopular()
+   //getMovies()
+  //  getTopMovies()
+  //  getTopSeries()
+  //  getSeriesPopular()
+  //  getPersonPopular()
 
-   }, [])  
+     
 
 
     return (

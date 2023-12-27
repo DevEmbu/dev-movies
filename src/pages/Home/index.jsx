@@ -24,15 +24,42 @@ function Home(){
  useEffect( () => { 
     //Aqui vou chamar a API la na pasta service, onde montei a base do servidor.
     //ESSA FUNÇÃO CHAMA O BCKGROUND DO SITE
-    async function getAllData(){
-              
-   setMovie(await getMovies())
-   setTopMovies(await getTopMovies())
-   setTopSeries(await getTopSeries())
-   setSeriesPopular(await getSeriesPopular())
-   setPersonPopular(await getPersonPopular())
-  }
-    getAllData()
+
+    //1ª forma de chamar a função
+    // async function getAllData(){ 
+    //     console.time('time')             
+    //   setMovie(await getMovies())
+    //   setTopMovies(await getTopMovies())
+    //   setTopSeries(await getTopSeries())
+    //   setSeriesPopular(await getSeriesPopular())
+    //   setPersonPopular(await getPersonPopular())
+    //     console.timeEnd('time')
+    //   }
+    // getAllData()
+
+          // 2ª forma de chamar a função( menos codigo )
+             async function getAllData(){ 
+              console.time('time')
+                       
+                Promise.all([                  
+                  getMovies(),
+                  getTopMovies(),
+                  getTopSeries(),
+                  getSeriesPopular(),
+                  getPersonPopular()
+
+                ])
+                  .then(([movie, topMovies, topSeries, seriesPopular, personPopular]) => { 
+                    setMovie(movie)
+                    setTopMovies(topMovies)
+                    setTopSeries(topSeries)
+                    setSeriesPopular(seriesPopular)
+                    setPersonPopular(personPopular)
+                  })
+                  .catch((error) => console.error(error))
+                    console.timeEnd('time')   
+              }
+            getAllData()
   }, [])
 
 
@@ -90,7 +117,7 @@ function Home(){
 
             <h1>{movie.title}</h1>
             <p>{movie.overview}</p>
-            <p>Modulo III React: Iniciando tela de Detalhes </p>
+            <p>Modulo III React: PromisseAll </p>
                     
                 <ContainerButtons>
                   <Button red onClick={() => navegacao(`/detalhe/${movie.id}`) }>Assista Agora</Button>

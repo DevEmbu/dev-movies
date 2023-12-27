@@ -1,12 +1,17 @@
+import { ContainerMovies } from "./styles"
+
 
 function Movies(){
 
+    
+
     return (
-        <div>
+        <ContainerMovies>
         
             <h1>Filmes</h1>
-            <p>Essa são  Paginas de Filmes</p>
-        </div>
+              
+            
+        </ContainerMovies>
     )
 }
 export default Movies

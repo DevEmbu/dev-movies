@@ -12,7 +12,7 @@ export const buttonStyles = css`
 
       &:hover{
         color:#ff0000;
-        background: #ffffff;
+        background: #ffffff;      
         
 
       }
@@ -28,7 +28,8 @@ export const ButtonRed = styled.button`
      border: 4px solid transparent;
 
      &:hover{ 
-        box-shadow: 0px 0px 46px 23px rgba(199,204,45,1);
+        box-shadow: 0px 0px 5px 5px rgba(199,204,45,1);
+         
      }
      
 

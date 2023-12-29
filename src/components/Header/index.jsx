@@ -6,7 +6,9 @@ import { ContainerHeader, Menu, Li } from './styles'
 import { useState } from 'react'
 import { MdOutlineLocalMovies } from "react-icons/md"
 import { BiCameraMovie } from "react-icons/bi"
-import { MdOutlineHome } from "react-icons/md"
+import { MdOutlineHome, MdMailOutline } from "react-icons/md"
+import { FaInstagram } from "react-icons/fa6";
+import { SiFacebook } from "react-icons/si";
 
 
 
@@ -28,6 +30,17 @@ function Header(){
   return(
     <ContainerHeader changeBackground={changeBackground}>
       <img src={ Logo } alt="logo-header"/>
+      <div className='meuLink'>
+          <p>Acesse o link abaixo:</p>
+          <em><a href='https://aulas.devclub.com.br/login' target='_blank'>Login Dev Club</a>
+          </em>
+      </div>
+          <div className='rede-social'>
+           <a href='https://www.facebook.com/' target='_blank'><SiFacebook /><span>Facebook</span> </a> 
+           <a href='https://www.instagram.com/' target='_blank'> <FaInstagram /><span>Instagram</span> </a>
+           <a href='https://accounts.google.com/AccountChooser/identifier?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&flowName=GlifWebSignIn&flowEntry=AccountChooser&ec=asw-gmail-globalnav-signin&theme=glif' target='_blank'> <MdMailOutline /><span>Email</span></a>
+
+          </div>
       
       <Menu>
         <Li isactive={ pathname === '/' }> <Link to='/'><MdOutlineHome /> </Link> </Li>

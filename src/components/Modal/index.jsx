@@ -1,5 +1,5 @@
 
-import { getMovie } from '../../pages/services/getData'
+import { getMovieVideos } from '../../pages/services/getData'
 import { useEffect, useState } from 'react'
 import { BackgroundModal, ContainerModal } from './styles'
 
@@ -12,13 +12,13 @@ function Modal({ movieId, setShowModal }){
   
   //ESSA FUNÇÃO VAI NA API E BUSCA O FILME
   useEffect(() => { 
-    async function getMovies(){
+    async function getMovie(){
      
-      console.log(setMovie(await getMovie(movieId)))
+      console.log(setMovie(await getMovieVideos(movieId)))
           
     }
     
-      getMovies()
+    getMovie()
   }, [])
 
 //AQUI VAI RETORNAR   O VIDEO

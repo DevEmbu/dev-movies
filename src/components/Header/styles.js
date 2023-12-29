@@ -24,6 +24,46 @@ export const ContainerHeader = styled.div`
         width: 4%;
              
       }
+
+      a{
+    text-decoration: none;
+    color: #E6B54B;
+    cursor: pointer;
+        
+   }
+      a:hover{
+        color: #808080;      
+        
+      }
+
+   .meuLink{
+    position: absolute;
+    align-items: left;
+    margin: 20px 0 0 100px;
+    color: #fff;
+    text-align: center;
+    border: 2px solid #808080;
+    border-radius: 5px;
+    width: 150px;
+    
+
+    p{
+      font-size: 12px;
+      font-weight: 500;
+      color: #EEE8AA;
+    }
+   }
+   .rede-social{
+    color: #ffffff;
+    width: 75px;
+    
+   }
+   .rede-social span{
+    color: #ffffff;
+    font-size: 8px;
+    width: 70px;
+   }
+   
       
 `
 export const Menu = styled.ul`

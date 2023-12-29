@@ -117,7 +117,7 @@ function Home(){
 
             <h1>{movie.title}</h1>
             <p>{movie.overview}</p>
-            <p>Modulo III React: PromisseAll </p>
+            <p>Modulo III React: Continuação tela de detalhes </p>
                     
                 <ContainerButtons>
                   <Button red onClick={() => navegacao(`/detalhe/${movie.id}`) }>Assista Agora</Button>

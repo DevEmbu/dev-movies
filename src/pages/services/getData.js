@@ -44,11 +44,32 @@ export async function getPersonPopular(){
 
 //Aqui vou chamar a API la na pasta service, onde montei a base do servidor.
 //ESSA FUNÇÃO VAI NA API E BUSCA O FILME
-export async function getMovie(movieId){
+export async function getMovieVideos(movieId){
     const {data: {results}
           } = await api.get(`/movie/${movieId}/videos`)
     
      return results[0]
 
+}
+//PRECISA ARRUMAR ESSAS CHAMADAS
+export async function getMovieCredits(movieId){
+    const {data: {results}
+          } = await api.get(`/movie/${movieId}/cerdits`)
+
+          return results
+
+}
+export async function getMovieDetail(movieId){
+    const {data: {results }
+          } = await api.get(`/movie/${movieId}/details`)
+
+          return results
+}
+
+export async function getMovieSimilar(movieId){
+    const {data: {results}
+          } = await api.get(`/movie/${movieId}/similar`)
+
+          return results
 }
 

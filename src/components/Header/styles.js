@@ -54,15 +54,99 @@ export const ContainerHeader = styled.div`
     }
    }
    .rede-social{
+   display: flex;
+   justify-content: center;
     color: #ffffff;
     width: 75px;
+       
+   }
+
+   .rede-social span1{
+    color: #ffffff;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 5px;
     
    }
-   .rede-social span{
+   .rede-social span2{
     color: #ffffff;
-    font-size: 8px;
-    width: 70px;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 5px;
+    
    }
+   .rede-social span3{
+    color: #ffffff;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 5px;
+    
+   }
+   .rede-social span4{
+    color: #ffffff;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 5px;
+    
+   }
+
+   .icone-face{
+    color: #4169E1;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 5px;
+    
+   }
+
+   .icone-insta{
+    color: #ff0000;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 5px;
+    
+   }
+
+   .icone-email{
+    color: #0000FF;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 5px;
+    
+   }
+
+   .icone-zap{
+    color: #00FF00;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 5px;
+    
+   }
+
+   
    
       
 `

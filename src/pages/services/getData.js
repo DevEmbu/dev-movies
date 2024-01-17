@@ -2,7 +2,7 @@
 import api from '../services/Api'
 
 
-//ESSA FUNÇÃO CHAMA O BCKGROUND DO SITE
+//ESSA FUNÇÃO CHAMA O BACKGROUND DO SITE
 export async function getMovies(){
     const { data: {results}
           } = await api.get('/movie/popular')
@@ -48,15 +48,15 @@ export async function getMovieVideos(movieId){
     const {data: {results}
           } = await api.get(`/movie/${movieId}/videos`)
     
-     return results[0]
+     return results
 
 }
 //PRECISA ARRUMAR ESSAS CHAMADAS
 export async function getMovieCredits(movieId){
-    const {data: {results}
+    const {data: {cast}
           } = await api.get(`/movie/${movieId}/cerdits`)
 
-          return results
+          return cast
 
 }
 export async function getMovieDetail(movieId){
